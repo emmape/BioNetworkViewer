@@ -124,4 +124,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'NetworkViewer/static/')
 ]
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 # STATIC_URL = os.path.join(BASE_DIR, 'NetworkViewer/static/NetworkViewer/')

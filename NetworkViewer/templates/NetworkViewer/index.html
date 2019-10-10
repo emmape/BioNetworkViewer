@@ -1,19 +1,30 @@
 {% include "./partials/header.html" %}
 <main>
-  Hello
-  <a href="/network/" type="submit" class="btn flat-btn cyan darken-3" id="example-btn">Upload File</a>
-  <!-- <div style="width:10%; height:90vh; float:left">
-    <h4 style="margin-left:10px; margin-top:20px" class="headline">{{inputFile}}</h4>
-    <h5 style="margin-left:10px; margin-top:40px; margin-bottom:0px" class="headline">Network Properties</h5>
-    <p class="caption">
-      <span><strong>Diameter: {{diameter}}</strong></span><br>
-      <span><strong>Clustering coefficient: {{clustering}}</strong></span>
-      <span><strong>Cliques: {{cliques}}</strong></span>
-    </p>
+  <br>
+<div class="row" >
+    <div class="col l8 offset-l2 col m10 offset-m1 welcometext" id="indexContent">
+        <div class="card">
+            <div class="card-content grey-text text-darken-1">
+                <h2 style="text-align: center; margin-bottom: 30px;" class="headline">Welcome to BioNetworkViewer</h2>
+                <p style="text-align: center; " class="caption"> Upload a network to start your visualization </p>
+                <br><br>
 
-  </div>
-  <div style="width:90%; height:90vh; float:right">
-    {% include "./networks/test.html" %}
-  </div> -->
+                  <form method="POST" class="post-form" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div style="text-align:center">
+                    {{form}}
+                    <!-- <input type="file" name="myfile" /> -->
+                    </div>
+                    <div style="text-align:center; margin-top: 10px;">
+                      <button type="submit" class="save btn btn-default cyan darken-3">Save</button>
+                    </div>
+                  </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
 </main>
 {% include "./partials/footer.html" %}
