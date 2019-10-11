@@ -13,10 +13,14 @@
                     {% csrf_token %}
                     <div style="text-align:center">
                     {{form}}
+                    <!-- <a id="browse" class="my_class">Browse</a> -->
+                    <!-- <button id="browse" class="save btn btn-default blue darken-2">Browse</button> -->
+                    <!-- {{filename}} -->
+                    <input type="file" name="docfile" style="display: none" />
                     <!-- <input type="file" name="myfile" /> -->
                     </div>
-                    <div style="text-align:center; margin-top: 10px;">
-                      <button type="submit" class="save btn btn-default cyan darken-3">Save</button>
+                    <div style="text-align:center; margin-top: 30px;margin-bottom:30px;">
+                      <button type="submit" class="save btn btn-default blue darken-2">Start Visualizing</button>
                     </div>
                   </form>
 
@@ -26,5 +30,9 @@
 </div>
 
 
+
 </main>
 {% include "./partials/footer.html" %}
+<script >$('#browse').click(function(){
+    $(this).parent().find('input').click();
+});</script>

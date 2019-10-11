@@ -25,6 +25,21 @@ input:focus {
     background-color: #d1d1d1;
 }
 
+.id_docfile{
+  color:black;
+  width:80px;
+}
+#FileField {
+    width:250px;
+    margin-right:85px;
+    padding: 6px;
+    font-size: 13px;
+    background: #fff url('bg-form-field.gif') top left repeat-x;
+    border: 1px solid #d5d5d5;
+    color: #333;
+    border-radius: 4px 4px 4px 4px !important;
+}
+
 #lookuptable {
     text-align: center;
 }
@@ -234,11 +249,11 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
 }
 
 .caption {
-    font-size: 1.15rem;
+    font-size: 1.10rem;
     font-weight: 300;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     margin-left:10px;
-    margin-top:5px
+    margin-top:10px
 }
 
 #example-form {

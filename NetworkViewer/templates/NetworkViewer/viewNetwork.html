@@ -1,17 +1,27 @@
 {% include "./partials/header.html" %}
 <main>
   <div style="width:10%; height:90vh; float:left">
-    <h4 style="margin-left:10px; margin-top:20px" class="headline">{{inputFile}}</h4>
+    <!-- <h4 style="margin-left:10px; margin-top:20px" class="headline">{{inputFile}}</h4> -->
     <h5 style="margin-left:10px; margin-top:40px; margin-bottom:0px" class="headline">Network Properties</h5>
     <p class="caption">
       <span><strong>Diameter: {{diameter}}</strong></span><br>
       <span><strong>Clustering coefficient: {{clustering}}</strong></span>
       <span><strong>Cliques: {{cliques}}</strong></span>
     </p>
-
+      <form method="post" action="{% url 'download' %}">
+        {% csrf_token %}
+        <input type="hidden" name="file" value="{{ inputFile }}">
+        <button style="margin-left:10px; margin-top:20px;margin-bottom:0px; width:85%" type="submit"  name = "downloadBtn" class="save btn btn-default blue darken-2">Download HTML</button>
+      </form>
+      <form method="post" action="{% url 'downloadJpg' %}">
+        {% csrf_token %}
+        <input type="hidden" name="file" value="{{ inputFile }}">
+        <button style="margin-left:10px; margin-top:5px;margin-bottom:0px; width:85%" type="submit" name = "downloadBtn" class="save btn btn-default blue darken-2">Download PNG</button>
+      </form>
+    <!-- <button style="margin-left:10px; margin-top:40px; type="submit" margin-bottom:0px" name = "file" value={{htmlFile}} onclick="location.href='{% url 'download' %}'"  class="save btn btn-default cyan darken-3">Download HTML</button> -->
   </div>
   <div style="width:90%; height:90vh; float:right">
-    {% include "./networks/test.html" %}
+    {% include htmlFile %}
   </div>
 </main>
 {% include "./partials/footer.html" %}

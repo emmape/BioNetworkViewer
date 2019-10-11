@@ -8,6 +8,10 @@ from pyvis.network import Network
 from django.shortcuts import render
 from .forms import DocumentForm
 from django.http import HttpResponseRedirect
+import csv
+from django.urls import resolve
+from django.utils.encoding import smart_str
+import matplotlib.pyplot as plt
 
 
 # Create your views here.
@@ -28,6 +32,9 @@ def index(request):
 def network(request, n):
 
     inputFile=n
+    htmlFile = "./NetworkViewer/networks/"+n.split(".")[0]+".html"
+    inputFile=n
+    # inputFile="test.txt"
     networkDf = pd.read_csv(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'media/'+inputFile), sep=' ', header=None)
     nxg = nx.from_pandas_edgelist(networkDf, source =0, target=1)
     # nxg = nx.complete_graph(5)
@@ -36,8 +43,11 @@ def network(request, n):
     clusteringCoeff= 0#np.mean(list(clusteringCoeffs.values()))
     allCliques = None#nx.find_cliques(nxg)
     cliques =0# len(list(allCliques))
-    g = Network()
+    pos = nx.spring_layout(nxg)
+    nx.draw(nxg, pos)
+    plt.savefig("./NetworkViewer/templates/NetworkViewer/networks/"+inputFile.split(".")[0]+".png", format="PNG")
 
+    g = Network()
     g.barnes_hut()
     g.toggle_physics(True)
     # g.show_buttons(filter_=['physics'])
@@ -46,12 +56,13 @@ def network(request, n):
     g.width="100%"
     # g.add_nodes([1,2,3], value=[10, 100, 400], title=["I am node 1", "node 2 here", "and im node 3"], x=[21.4, 54.2, 11.2], y=[100.2, 23.54, 32.1], label=["NODE 1", "NODE 2", "NODE 3"], color=["#00ff1e", "#162347", "#dd4b39"])
     # G.from_nx(network)
-    g.save_graph("./NetworkViewer/templates/NetworkViewer/networks/"+inputFile+".html")
+    g.save_graph("./NetworkViewer/templates/NetworkViewer/networks/"+inputFile.split(".")[0]+".html")
     context={
         "diameter": diameter,
         "clustering": clusteringCoeff,
         "cliques": cliques,
-        "inputFile": inputFile
+        "inputFile": inputFile,
+        "htmlFile": htmlFile
     }
     return render(request, 'NetworkViewer/viewNetwork.html', context)
 
@@ -59,3 +70,26 @@ def handle_uploaded_file(f):
     with open('/media/'+f.name, 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
+
+
+def downloadNetwork(request):
+    fileName=request.POST['file'].split(".")[0]+".html"
+    file_path = "./NetworkViewer/templates/NetworkViewer/networks/"+fileName
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+            return response
+    raise Http404
+
+def downloadNetworkAsJpg(request):
+    file_path = "./NetworkViewer/templates/NetworkViewer/networks/"
+    fileName=file_path+request.POST['file'].split(".")[0]+".html"
+    jpgFileName = file_path+request.POST['file'].split(".")[0]+".png"
+
+    if os.path.exists(jpgFileName):
+        with open(jpgFileName, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(jpgFileName)
+            return response
+    raise Http404
