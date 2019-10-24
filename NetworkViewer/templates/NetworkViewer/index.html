@@ -3,7 +3,7 @@
   <br>
 <div class="row" >
     <div class="col l8 offset-l2 col m10 offset-m1 welcometext" id="indexContent">
-        <div class="card">
+        <div class="card" style="margin-top:70px;">
             <div class="card-content grey-text text-darken-1">
                 <h2 style="text-align: center; margin-bottom: 30px;" class="headline">Welcome to BioNetworkViewer</h2>
                 <p style="text-align: center; " class="caption"> Upload a network to start your visualization </p>
@@ -11,12 +11,12 @@
 
                   <form method="POST" class="post-form" enctype="multipart/form-data">
                     {% csrf_token %}
-                    <div style="text-align:center">
+                    <div style="text-align:left; margin-left:40%;width:200px;">
                     {{form}}
                     <!-- <a id="browse" class="my_class">Browse</a> -->
                     <!-- <button id="browse" class="save btn btn-default blue darken-2">Browse</button> -->
                     <!-- {{filename}} -->
-                    <input type="file" name="docfile" style="display: none" />
+                      <!-- <input type="file" name="docfile" style="display: none" />-->
                     <!-- <input type="file" name="myfile" /> -->
                     </div>
                     <div style="text-align:center; margin-top: 30px;margin-bottom:30px;">
