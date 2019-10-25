@@ -1,0 +1,6 @@
+Django
+pyvis
+networkx
+numpy
+pandas
+matplotlib

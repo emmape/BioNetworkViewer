@@ -32,9 +32,7 @@ def network(request, n, f):
 
     # The network parameters to be displayed are initiated. All parameters can not be calculated for all types of networks
     diameter = 0
-    clusteringCoeffs = 0
     clusteringCoeff= 0
-    allCliques = 0
     cliques = 0
     degree = 0
     connectedComponents = 0

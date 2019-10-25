@@ -1,5 +1,5 @@
 {% include "./partials/header.html" %}
-<main>
+<main id="third">
   <br>
     <div class="card" id="index-card">
       <div class="card-content grey-text text-darken-1">
@@ -9,7 +9,7 @@
         <form method="POST" class="post-form" id="index-form" enctype="multipart/form-data">
           {% csrf_token %}
           {{form}}
-          <button type="submit" id="index-btn" class="save btn btn-default blue darken-2">Start Visualizing</button>
+          <button type="submit" id="index-btn" class="save btn btn-default blue darken-4">Start Visualizing</button>
         </form>
     </div>
   </div>

@@ -59,11 +59,15 @@ main {
 }
 
 #nw-left-panel{
-  width:12%;
-  height:90vh;
+  width:15%;
+  height:86vh;
   float:left;
 }
 #nw-name{
+  margin-left:10px;
+  /* margin-top:20px */
+}
+#nw-network{
   margin-left:10px;
   margin-top:20px
 }
@@ -88,7 +92,15 @@ main {
 }
 
 #nw-right-panel{
-  width:88%;
-  height:90vh;
+  width:85%;
+  height:86vh;
   float:right
 }
+
+#third{
+ background: url("/NetworkViewer/static/NetworkViewer/img/sample3.jpg") 60% 0 no-repeat fixed;
+ background-size: 85% 100%;
+ color: white;
+ height: 80vh;
+ padding: 0 0 0 0;
+ }

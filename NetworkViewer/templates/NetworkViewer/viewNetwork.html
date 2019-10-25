@@ -1,8 +1,10 @@
 {% include "./partials/header.html" %}
 <main>
   <div id="nw-left-panel">
-    <h5 id="nw-name" class="headline">{{inputFile}}</h5>
-    <h5 id="nw-prop" class="headline">Network Properties</h5>
+    <h5 id="nw-network" class="headline">Network: </h5>
+    <!-- <span ><strong id="nw-network">Network: </strong></span> -->
+    <p id="nw-name" class="headline">{{inputFile}}</p>
+    <h5 id="nw-prop" class="headline">Network Properties:</h5>
     <p >
       {% if connectedComponents != 0.00 %}
       <span class="small-spacer"><strong>Connected Components: {{connectedComponents}}</strong></span><br>
@@ -23,15 +25,16 @@
       <span class="small-spacer"><strong>Average Degree: {{degree}}</strong></span><br>
       {% endif %}
     </p>
+
       <form method="post" action="{% url 'download' %}">
         {% csrf_token %}
         <input type="hidden" name="file" value="{{ inputFile }}">
-        <button id="download-html" type="submit"  name = "downloadBtn" class="save btn btn-default blue darken-2">Download HTML</button>
+        <button id="download-html" type="submit"  name = "downloadBtn" class="save btn btn-default blue darken-4">Download HTML</button>
       </form>
       <form method="post" action="{% url 'downloadPng' %}">
         {% csrf_token %}
         <input type="hidden" name="file" value="{{ inputFile }}">
-        <button id="download-png" type="submit" name = "downloadBtn" class="save btn btn-default blue darken-2">Download PNG</button>
+        <button id="download-png" type="submit" name = "downloadBtn" class="save btn btn-default blue darken-4">Download PNG</button>
       </form>
 </div>
   <div id="nw-right-panel">
