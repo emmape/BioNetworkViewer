@@ -25,7 +25,7 @@ SECRET_KEY = 'ba-q+7$eq4zc&e_ypqde3inv*4p@24!_!*cm+n^dg(_74njfg('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -69,17 +69,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'bioNetworkViewer.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
 
 
 # Password validation

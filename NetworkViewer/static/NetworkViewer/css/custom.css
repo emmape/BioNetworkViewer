@@ -16,43 +16,79 @@ main {
 #id_inputFormat{
   width:100%;
   display: inline;
-  margin-left: 10px;
   margin-bottom: 30px;
+  color: black;
+  border-color: darkgray;
 }
 
 #id_docfile{
   margin-bottom: 20px;
+  margin-top: 40px;
+  width:100%;
 }
 
-#FileField {
-    width:250px;
-    margin-right:85px;
-    padding: 6px;
-    font-size: 13px;
-    background: #fff url('bg-form-field.gif') top left repeat-x;
-    border: 1px solid #d5d5d5;
-    color: #333;
-    border-radius: 4px 4px 4px 4px !important;
+#index-card{
+  width: 50%;
+  margin-top:70px;
+  margin-left:25%;
 }
 
-#menubar {
-        /* text-align: center; */
-        margin-left:15px;
-  }
-
-.section {
-    text-align: left;
+#index-text{
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-.select{
-  width:100px!important;
+#index-form{
+  text-align:left;
+  margin-left:34%;
+  width:30%;
+}
+#index-btn{
+  text-align:center;
+  margin-top: 30px;
+  margin-bottom:30px;
+  width:100%;
 }
 
-#footer {
-    /* border-top: 1px solid #d1d1d1; */
-    /* height:20px; */
+.spacer{
+  margin-left:20px;
 }
 
-#example-form {
-    display: inline;
+.small-spacer{
+  margin-left:10px;
+}
+
+#nw-left-panel{
+  width:12%;
+  height:90vh;
+  float:left;
+}
+#nw-name{
+  margin-left:10px;
+  margin-top:20px
+}
+#nw-prop{
+  margin-left:10px;
+  margin-top:40px;
+  margin-bottom:0px;
+}
+
+#download-html{
+  margin-left:10px;
+  margin-top:40px;
+  margin-bottom:0px;
+  width:85%
+}
+
+#download-png{
+  margin-left:10px;
+  margin-top:5px;
+  margin-bottom:0px;
+  width:85%
+}
+
+#nw-right-panel{
+  width:88%;
+  height:90vh;
+  float:right
 }

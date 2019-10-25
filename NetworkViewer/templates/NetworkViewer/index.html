@@ -1,38 +1,18 @@
 {% include "./partials/header.html" %}
 <main>
   <br>
-<div class="row" >
-    <div class="col l8 offset-l2 col m10 offset-m1 welcometext" id="indexContent">
-        <div class="card" style="margin-top:70px;">
-            <div class="card-content grey-text text-darken-1">
-                <h2 style="text-align: center; margin-bottom: 30px;" class="headline">Welcome to BioNetworkViewer</h2>
-                <p style="text-align: center; " class="caption"> Upload a network to start your visualization </p>
-                <br><br>
+    <div class="card" id="index-card">
+      <div class="card-content grey-text text-darken-1">
+        <h2 id="index-text" class="headline">Welcome to BioNetworkViewer</h2>
+        <p id="index-text" class="caption"> Upload a network, and pick your network format to start your visualization </p>
 
-                  <form method="POST" class="post-form" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <div style="text-align:left; margin-left:40%;width:200px;">
-                    {{form}}
-                    <!-- <a id="browse" class="my_class">Browse</a> -->
-                    <!-- <button id="browse" class="save btn btn-default blue darken-2">Browse</button> -->
-                    <!-- {{filename}} -->
-                      <!-- <input type="file" name="docfile" style="display: none" />-->
-                    <!-- <input type="file" name="myfile" /> -->
-                    </div>
-                    <div style="text-align:center; margin-top: 30px;margin-bottom:30px;">
-                      <button type="submit" class="save btn btn-default blue darken-2">Start Visualizing</button>
-                    </div>
-                  </form>
-
-            </div>
-        </div>
+        <form method="POST" class="post-form" id="index-form" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{form}}
+          <button type="submit" id="index-btn" class="save btn btn-default blue darken-2">Start Visualizing</button>
+        </form>
     </div>
-</div>
-
-
+  </div>
 
 </main>
 {% include "./partials/footer.html" %}
-<script >$('#browse').click(function(){
-    $(this).parent().find('input').click();
-});</script>
