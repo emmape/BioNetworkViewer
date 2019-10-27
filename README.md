@@ -9,3 +9,5 @@ All dependencies are declared in the requirements.txt file. To install all packa
 To run the project locally using the Django development server, run:
 
 ```python3 manage.py runserver```
+
+The application is then available at localhost:8000
